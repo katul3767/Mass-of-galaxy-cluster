@@ -1,1 +1,1 @@
-# Dynamical Mass-of-galaxy-cluster
+# Dynamical Masses-of-galaxy-cluster
