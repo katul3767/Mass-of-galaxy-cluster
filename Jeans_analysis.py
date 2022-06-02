@@ -50,7 +50,7 @@ ra_cl = ra_cl
 dec_cl = np.pi/2. - (dec_cl)
 y = 2*np.arcsin(np.sqrt(np.sin((dec_cl-dec_gal)/2.0)**2.0 +np.sin(dec_cl)*np.sin(dec_gal)*np.sin((ra_cl-ra_gal)/2.0)**2.0))
 
-# From astropy inbuilt module separation
+# Also same as above but from astropy inbuilt module .separation
 A=(SkyCoord(data.field('RA_2')*u.degree, data.field('DEC_2')*u.degree)) #c1 refers to the galaxies coordinates
 B=(SkyCoord(data.field('RA_1')[0]*u.degree,data.field('DEC_1')[0]*u.degree)) #c2 refers to the co-ordinates of whole cluster
 sep = A.separation(B)
@@ -62,11 +62,12 @@ D_cl=cosmos.comoving_distance(z)
 # Proper comoving distance
 D_prop=cosmos.angular_diameter_distance(z_cluster)
 
-# The projected radius of the cluster
+# The Projected separation of the cluster using the  eqn 4 from (https://arxiv.org/pdf/1711.10018.pdf)
 r_proj=(x*D) # D is comoving distance
 r_proj
 
 # Getting the actual distance from the simulation
+
 """ For the whole members of the cluster he actual estimation
 """
 
@@ -92,7 +93,7 @@ x1 = r1 * np.cos( phi1) * np.sin( theta1 )
 y1 = r1 * np.sin( phi1) * np.sin( theta1 )
 z1 = r1 * np.cos( theta1 )
 
-# The distance estimation
+# The distance estimation 
 dis =np.sqrt((x1-xx)**2 + (y1-yy)**2 + (z1-zz)**2)
 plt.plot(dis,r)
 
